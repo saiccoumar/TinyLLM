@@ -21,7 +21,7 @@ sed -i.orig "s/set(CUDA_SUPPORTED_ARCHS \"7.0;7.5;8.0;8.6;8.9;9.0\")/set(CUDA_SU
 
 echo " - Updating Dockerfile"
 torch_cuda_arch_list="6.0 6.1 7.0 7.5 8.0 8.6 8.9 9.0+PTX"
-sed -i.orig "s/ARG torch_cuda_arch_list='7.0 7.5 8.0 8.6 8.9 9.0+PTX'/ARG torch_cuda_arch_list='$torch_cuda_arch_list'/g" Dockerfile
+sed -i.orig "s/ARG torch_cuda_arch_list='7.0 7.5 8.0 8.6 8.9 9.0+PTX'/ARG torch_cuda_arch_list='$torch_cuda_arch_list'/g" docker/Dockerfile
 
 cat <<EOF
 You can now build from source with Pascal GPU support:

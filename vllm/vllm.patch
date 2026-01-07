@@ -1,5 +1,5 @@
---- Dockerfile	2024-06-07 22:09:30.069782339 -0700
-+++ Dockerfile	2024-06-07 22:10:02.357875428 -0700
+--- docker/Dockerfile	2024-06-07 22:09:30.069782339 -0700
++++ docker/Dockerfile	2024-06-07 22:10:02.357875428 -0700
 @@ -35,7 +35,7 @@
  # can be useful for both `dev` and `test`
  # explicitly set the list to avoid issues with torch 2.2

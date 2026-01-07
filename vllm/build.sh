@@ -6,4 +6,4 @@
 
 echo "Build vllm docker image..."
 
-DOCKER_BUILDKIT=1 docker build . -f Dockerfile --target vllm-openai --tag vllm
+DOCKER_BUILDKIT=1 docker build . -f docker/Dockerfile --network=host --target vllm-openai --tag vllm

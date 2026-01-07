@@ -12,13 +12,13 @@ cd vllm
 
 # Copy helpful files
 echo "Copying helpful files..."
-cp ../run-pascal.sh run.sh
+cp ../run.sh run.sh
 cp ../build.sh build.sh
-cp ../vllm.patch vllm.patch
+cp ../pascal.sh pascal.sh
 
 # Patch the source code
 echo "Patching source code..."
-patch < vllm.patch
+./pascal.sh
 
 # Build the docker image
 echo "Building docker image..."
