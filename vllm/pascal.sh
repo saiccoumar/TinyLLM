@@ -17,12 +17,11 @@ echo "Adding Pascal GPU support..."
 # Update CMakeLists.txt and Dockerfile
 echo " - Updating CMakeLists.txt"
 cuda_supported_archs="6.0;6.1;7.0;7.5;8.0;8.6;8.9;9.0"
-sed -i.orig "s/set(CUDA_SUPPORTED_ARCHS \"7.0;7.5;8.0;8.6;8.9;9.0\")/set(CUDA_SUPPORTED_ARCHS \"$cuda_supported_archs\")/g" CMakeLists.txt
+sed -i.orig -E 's/set\(CUDA_SUPPORTED_ARCHS "([^"]*)"\)/set(CUDA_SUPPORTED_ARCHS "6.0;6.1;\1")/g' CMakeLists.txt
 
 echo " - Updating Dockerfile"
 torch_cuda_arch_list="6.0 6.1 7.0 7.5 8.0 8.6 8.9 9.0+PTX"
-sed -i.orig "s/ARG torch_cuda_arch_list='7.0 7.5 8.0 8.6 8.9 9.0+PTX'/ARG torch_cuda_arch_list='$torch_cuda_arch_list'/g" docker/Dockerfile
-
+sed -i.orig "s/ARG torch_cuda_arch_list='[^']*'/ARG torch_cuda_arch_list='6.0 6.1 7.0 7.5 8.0 8.6 8.9 9.0+PTX'/" docker/Dockerfile
 cat <<EOF
 You can now build from source with Pascal GPU support:
     pip install -e .
