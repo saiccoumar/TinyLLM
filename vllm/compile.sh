@@ -8,6 +8,7 @@
 # Clone the vLLM Source
 echo "Cloning vLLM source..."
 git clone https://github.com/vllm-project/vllm.git
+git checkout 220a476
 cd vllm
 
 # Copy helpful files
